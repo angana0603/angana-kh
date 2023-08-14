@@ -18,16 +18,19 @@ export default function Login() {
         password: values.password,
       })
     );
-    const response = await fetch("http://localhost:3001/api/loginuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: values.email,
-        password: values.password,
-      }),
-    });
+    const response = await fetch(
+      "https://angana-backend.onrender.com/api/loginuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: values.email,
+          password: values.password,
+        }),
+      }
+    );
     const json = await response.json();
     console.log(json);
     if (!json.success) {

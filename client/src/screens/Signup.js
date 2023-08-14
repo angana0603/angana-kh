@@ -24,18 +24,21 @@ export default function Signup() {
         location: values.location,
       })
     );
-    const response = await fetch("http://localhost:3001/api/creatuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: values.name,
-        password: values.password,
-        email: values.email,
-        location: values.location,
-      }),
-    });
+    const response = await fetch(
+      "https://angana-backend.onrender.com/api/creatuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          password: values.password,
+          email: values.email,
+          location: values.location,
+        }),
+      }
+    );
 
     const json = await response.json();
     console.log(json);

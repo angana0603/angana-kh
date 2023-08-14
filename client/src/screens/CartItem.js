@@ -20,17 +20,20 @@ export default function CartItem() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
 
-    let response = await fetch("http://localhost:3001/api/orderData", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        order_data: item,
-        email: userEmail,
-        order_date: new Date().toISOString(),
-      }),
-    });
+    let response = await fetch(
+      "https://angana-backend.onrender.com/api/orderData",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          order_data: item,
+          email: userEmail,
+          order_date: new Date().toISOString(),
+        }),
+      }
+    );
     console.log("JSON RESPONSE:::", response.status);
     if (response.status === 200) {
       dispatch({ type: "DROP" });

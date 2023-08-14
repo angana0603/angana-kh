@@ -15,14 +15,17 @@ export default function Home() {
   const handleLogin = async () => {
     try {
       // Call login API with username and password
-      const response = await fetch("http://localhost:3001/api/loginuser", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: "exampleUser",
-          password: "examplePassword",
-        }),
-      });
+      const response = await fetch(
+        "https://angana-backend.onrender.com/api/loginuser",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: "exampleUser",
+            password: "examplePassword",
+          }),
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -66,10 +69,13 @@ export default function Home() {
     }
   }, []);
   const loadFoodItems = async () => {
-    let response = await fetch("http://localhost:3001/api/foodData", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    });
+    let response = await fetch(
+      "https://angana-backend.onrender.com/api/foodData",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
     response = await response.json();
     setFoodItem(response[0]);

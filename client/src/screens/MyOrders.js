@@ -7,7 +7,7 @@ export default function MyOrders() {
   // Fetch order details from local storage or state management
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    await fetch("http://localhost:3001/api/myOrderData", {
+    await fetch("https://angana-backend.onrender.com/api/myOrderData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
