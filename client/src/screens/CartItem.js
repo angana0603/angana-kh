@@ -34,7 +34,6 @@ export default function CartItem() {
         }),
       }
     );
-    console.log("JSON RESPONSE:::", response.status);
     if (response.status === 200) {
       dispatch({ type: "DROP" });
     }

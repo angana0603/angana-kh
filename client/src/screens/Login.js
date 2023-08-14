@@ -12,12 +12,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(
-      JSON.stringify({
-        email: values.email,
-        password: values.password,
-      })
-    );
     const response = await fetch(
       "https://angana-backend.onrender.com/api/loginuser",
       {
@@ -32,7 +26,6 @@ export default function Login() {
       }
     );
     const json = await response.json();
-    console.log(json);
     if (!json.success) {
       alert("Enter valid values");
     }
@@ -40,7 +33,6 @@ export default function Login() {
     if (json.success) {
       localStorage.setItem("userEmail", values.email);
       localStorage.setItem("authToken", json.authToken);
-      console.log(localStorage.getItem("authToken"));
       navigate("/");
     }
   };

@@ -16,14 +16,6 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(
-      JSON.stringify({
-        name: values.name,
-        password: values.password,
-        email: values.email,
-        location: values.location,
-      })
-    );
     const response = await fetch(
       "https://angana-backend.onrender.com/api/creatuser",
       {
@@ -41,7 +33,6 @@ export default function Signup() {
     );
 
     const json = await response.json();
-    console.log(json);
 
     if (!json.success) {
       alert("Enter valid values");
