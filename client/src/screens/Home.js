@@ -15,7 +15,7 @@ export default function Home() {
   const handleLogin = async () => {
     try {
       // Call login API with username and password
-      const response = await fetch("http://localhost:5000/api/loginuser", {
+      const response = await fetch("http://localhost:3001/api/loginuser", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -66,7 +66,7 @@ export default function Home() {
     }
   }, []);
   const loadFoodItems = async () => {
-    let response = await fetch("http://localhost:5000/api/foodData", {
+    let response = await fetch("http://localhost:3001/api/foodData", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
